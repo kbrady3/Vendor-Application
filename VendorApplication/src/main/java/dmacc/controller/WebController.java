@@ -39,8 +39,8 @@ public class WebController {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String showUpdateVendor(@PathVariable("id") int id, Model model) {
-		Vendor v = repo.findById((long) id).orElse(null);
+	public String showUpdateVendor(@PathVariable("id") long id, Model model) {
+		Vendor v = repo.findById(id).orElse(null);
 		model.addAttribute("newVendor", v);
 		return "input";
 	}
@@ -52,8 +52,8 @@ public class WebController {
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String deleteUser(@PathVariable("id") int id, Model model) {
-		Vendor v = repo.findById((long) id).orElse(null);
+	public String deleteUser(@PathVariable("id") long id, Model model) {
+		Vendor v = repo.findById(id).orElse(null);
 		repo.delete(v);
 		return viewAllVendors(model);
 	}
