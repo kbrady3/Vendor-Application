@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Vendors</title>
+		<style>
+			body{
+				font-family:arial;
+				text-align:center;
+			}
+		</style>
+</head>
+<body>
+	<form>
+		<table>
+		<tr th:each="currentVendor: ${vendors}">
+			<td th:text="${currentVendor.id}" />
+			<td th:text="${currentVendor.name}" />
+			<td th:text="${currentVendor.description}" />
+			<td th:text="${currentVendor.address}" />
+
+			<td><a th:href="@{/edit/{id}(id=${currentVendor.id})}">Edit</a></td>
+			<td><a th:href="@{/delete/{id}(id=${currentVendor.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	
+	<a href="../addVendor">Add a new vendor</a>
+</body>
+</html>

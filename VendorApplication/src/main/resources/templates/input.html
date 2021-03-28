@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New or Edit Vendor</title>
+		<style>
+			body{
+				font-family:arial;
+				text-align:center;
+			}
+		</style>
+</head>
+<body>
+	<form th:object="${newVendor}" th:action="@{/update/{id}(id=${newVendor.id})}" method=POST>
+		Name: <input name="name" size="20" th:field="*{name}"><br />
+		Description: <input name="description" size="20" th:field="*{description}"><br />
+		Address: <input name="address" size="20" th:field="*{address}"><br />
+		
+		<input name="Submit" type="submit" value="Submit" />
+	</form>
+	
+	<a href="../viewAllVendors">View All Vendors</a>
+
+</body>
+</html>
